@@ -4,5 +4,8 @@
     <a routerLink="/" routerLinkActive="estActif" [routerLinkActiveOptions]="{exact: true}">Accueil</a>
     <a routerLink="/produit" routerLinkActive="estActif">Liste des produits</a>
 </nav>
+<span>
+    <p>Connecté : <button (click)="seConnecter()">{{msgConnecter}}</button></p>
+</span>
 
 

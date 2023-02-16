@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { IProduit } from '../iproduit';
 
 @Component({
@@ -8,5 +8,12 @@ import { IProduit } from '../iproduit';
 })
 export class ProduitComponent{
   @Input() produit:IProduit;
+  @Output() peutEditerChange = new EventEmitter<boolean>();
   @Input() peutEditer:boolean;
+
+  changeEditable(){
+    console.log(this.peutEditer)
+    this.peutEditerChange.emit(this.peutEditer);
+  }
+
 }

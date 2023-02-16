@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../auth.service';
 import { IProduit } from '../iproduit';
 
 @Component({
@@ -8,9 +9,9 @@ import { IProduit } from '../iproduit';
 })
 export class ListeComponent {
   produits:Array<IProduit>;
-  sontEditable:boolean = false;
+  sontEditable:boolean = true;
   
-  constructor(){
+  constructor(private authServ:AuthService){
     this.produits = [...Array(5)].map((item, index)=>{
       return {  nom : "element " + index, 
               fabricant: "brasserie xyz", 
@@ -19,9 +20,15 @@ export class ListeComponent {
               rabais : !(index % 3)};
     })
     console.log(this.produits)
-    
-  }
 
+    console.log(this.authServ.etatConnexion)
+  }
+  verifConnexion(){
+    console.log(this.authServ.etatConnexion)
+    if(!this.authServ.etatConnexion && this.sontEditable == true){
+      this.sontEditable = false;
+    }
+  }
   estEnSolde(unProduit:IProduit){
     return (unProduit.prix < 15 && unProduit.rabais);
   }
