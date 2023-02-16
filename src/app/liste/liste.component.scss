@@ -1,0 +1,10 @@
+.liste {
+    display: flex;
+    flex-direction: column;
+    .unProduit{
+        margin: 16px;
+        
+        width: 200px;
+        border: 5px dashed rebeccapurple;
+    }
+}
