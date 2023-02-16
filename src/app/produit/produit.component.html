@@ -1,1 +1,11 @@
-<p>produit works!</p>
+<article *ngIf="!peutEditer; else editable" class="unProduit"  >
+    <p>Nom : {{produit.nom}}</p>
+    <p>Fabricant : {{produit.fabricant}}</p>
+</article>
+<ng-template #editable>
+    <article  class="unProduit" >
+        <p>Nom : <input type="text" [(ngModel)]="produit.nom"></p>
+        <p>Fabricant : <input type="text"  [(ngModel)]="produit.fabricant"></p>            
+    </article>
+</ng-template>
+    <p>Est éditable ? <input type="checkbox" [(ngModel)]="peutEditer"></p>
