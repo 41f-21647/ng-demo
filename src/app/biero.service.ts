@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IListeBiere } from './iliste-biere';
+import { IBiere } from './ibiere';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,8 @@ export class BieroService {
     return this.http.get<IListeBiere>(this.url_biero);
   }
 
-  getUneBiere(id:number):Observable<IListeBiere>{
-    return this.http.get<IListeBiere>(this.url_biero+id);
+  getUneBiere(id:number):Observable<IBiere>{
+    return this.http.get<IBiere>(this.url_biero+id);
   }
 
   ajouterBiere(){

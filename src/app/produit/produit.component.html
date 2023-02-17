@@ -1,5 +1,6 @@
+
 <article *ngIf="!peutEditer; else editable" class="unProduit"  >
-    <p>Nom : {{produit.nom}}</p>
+    <p><a routerLink="/produit/{{produit.id_biere}}">Nom : {{produit.nom}}</a></p>
     <p>Fabricant : {{produit.brasserie}}</p>
 </article>
 <ng-template #editable>
