@@ -1,11 +1,11 @@
 <article *ngIf="!peutEditer; else editable" class="unProduit"  >
     <p>Nom : {{produit.nom}}</p>
-    <p>Fabricant : {{produit.fabricant}}</p>
+    <p>Fabricant : {{produit.brasserie}}</p>
 </article>
 <ng-template #editable>
     <article  class="unProduit" >
         <p>Nom : <input type="text" [(ngModel)]="produit.nom"></p>
-        <p>Fabricant : <input type="text"  [(ngModel)]="produit.fabricant"></p>            
+        <p>Fabricant : <input type="text"  [(ngModel)]="produit.brasserie"></p>            
     </article>
 </ng-template>
-    <p>Est éditable ? <input type="checkbox" (change)="changeEditable()" [(ngModel)]="peutEditer"></p>
+    <p *ngIf="estConnecte">Est éditable ? <input type="checkbox" (change)="changeEditable()" [(ngModel)]="peutEditer"></p>
