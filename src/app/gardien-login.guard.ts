@@ -25,21 +25,5 @@ export class GardienLoginGuard implements CanActivate{
       return this.router.parseUrl('/');
   }
   
-  /*canDeactivate(
-    component: unknown,
-    currentRoute: ActivatedRouteSnapshot,
-    currentState: RouterStateSnapshot,
-    nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      console.log("test")
-      let valide = false;
-      if(this.estConnecte){
-        valide = true;
-      }
-      if(valide)
-        return true;
-      else
-        return this.router.parseUrl('/');
-    
-      //return true;
-  }*/
+  
 }
