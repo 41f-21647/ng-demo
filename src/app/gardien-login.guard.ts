@@ -11,6 +11,10 @@ export class GardienLoginGuard implements CanActivate{
   constructor(private authServ:AuthService, private router:Router){
     this.authServ.statutConnexion().subscribe((etat)=>{
       this.estConnecte = etat;
+      console.log(this.estConnecte);
+      if(this.estConnecte === false){
+        this.router.navigate(["/produit"]);
+      }
     })
   }
 
